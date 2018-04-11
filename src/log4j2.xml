@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<!-- 变量 -->
+<Properties>
+</Properties>
+<!-- 日志输出位置 -->
+<Appenders>
+</Appenders>
+<!-- 记录器，哪个包的什么信息级别输出到哪个位置 -->
+<Logger>
+</Logger>
+</Configuration>
