@@ -11,7 +11,7 @@
  服务器端
  github.com
  new repository
- https://github.com/ljcyu/jee2018_13.git
+ https://github.com/csjsp/jee2018_13.git
  
  git、TortoiseGit
  服务器上有代码，自己没有代码
@@ -24,6 +24,6 @@ push提交到服务器
 svn必须每次连接服务器
 
 log4j2
-删掉原来log4j-api-2.7.jar，可能需要关掉myeclipse。邮箱有类库。增加log4j-slf4j-impl-2.8.2.jar、log4j-api-2.8.2.jar、log4j-core-2.8.2.jar、slf4j-api-1.7.12.jar、slf4j-api-1.7.12.jar。
+删掉原来log4j-api-2.7.jar，可能需要关掉myeclipse。邮箱有类库。增加log4j-slf4j-impl-2.8.2.jar、log4j-api-2.8.2.jar、log4j-core-2.8.2.jar、slf4j-api-1.7.12.jar
 
 在src目录下增加log4j2.xml。具体看该文件
