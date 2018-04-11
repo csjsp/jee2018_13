@@ -2,10 +2,15 @@
 <Configuration status="WARN">
 <!-- 变量 -->
 <Properties>
-</Properties>
-<!-- 日志输出位置 -->
-<Appenders>
-</Appenders>
+		<property name="log.home" value="${sys:catalina.home}/logs/" />
+		<property name="prj.name" value="jee2018" />
+	</Properties>
+	<!-- 日志输出位置 -->
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
 <!-- 记录器，哪个包的什么信息级别输出到哪个位置 -->
 <Logger>
 </Logger>

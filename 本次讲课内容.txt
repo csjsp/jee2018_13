@@ -3,22 +3,27 @@
  log4j
  
  git
- Эͬ��������ʷ��¼
+ 协同工作，历史记录
  who when where what code review
  git svn cvs
- ������ �ͻ���
- ��������
- ��������
+ 服务器 客户端
+ 工作副本
+ 服务器端
  github.com
  new repository
  https://github.com/ljcyu/jee2018_13.git
  
- git��TortoiseGit
- ���������д��룬�Լ�û�д���
+ git、TortoiseGit
+ 服务器上有代码，自己没有代码
  clone
- ��������û�д��룬�Լ��д���
- ��������⣬commit(�ύ�����ش����)
-push�ύ�������� 
+ 服务器上没有代码，自己有代码
+ 创建代码库，commit(提交到本地代码库)
+push提交到服务器 
 
-��ô�ѷ������ϵ��´���ȡ���� pull
-svn����ÿ�����ӷ�����
+怎么把服务器上的新代码取过来 pull
+svn必须每次连接服务器
+
+log4j2
+删掉原来log4j-api-2.7.jar，可能需要关掉myeclipse。邮箱有类库。增加log4j-slf4j-impl-2.8.2.jar、log4j-api-2.8.2.jar、log4j-core-2.8.2.jar、slf4j-api-1.7.12.jar、slf4j-api-1.7.12.jar。
+
+在src目录下增加log4j2.xml。具体看该文件
