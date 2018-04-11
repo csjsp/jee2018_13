@@ -1,3 +1,23 @@
- git
+ git 
  ant
  log4j
+ 
+ git
+ 协同工作，历史记录
+ who when where what code review
+ git svn cvs
+ 服务器 客户端
+ 工作副本
+ 服务器端
+ github.com
+ new repository
+ https://github.com/ljcyu/jee2018_13.git
+ 
+ git、TortoiseGit
+ 服务器上有代码，自己没有代码
+ clone
+ 服务器上没有代码，自己有代码
+ 创建代码库，commit(提交到本地代码库)
+push提交到服务器 
+
+怎么把服务器上的新代码取过来 pull
