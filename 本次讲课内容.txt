@@ -27,3 +27,7 @@ private final static Logger logger
               <DefaultRolloverStrategy max="20"/>
 		</RollingFile>
   日志文件满足产生新文件条件后，自动产生一个
+  
+  ant another build tool 
+  make
+  build.xml 根目录
