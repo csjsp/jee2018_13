@@ -1,17 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
-<!-- 变量 -->
-<Properties>
+	<!-- 变量 -->
+	<Properties>
 		<property name="log.home" value="${sys:catalina.home}/logs/" />
 		<property name="prj.name" value="jee2018" />
+		<property name="logPattern">
+		%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n		
+		</property>
 	</Properties>
 	<!-- 日志输出位置 -->
 	<Appenders>
-		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		<Console name="Console2" target="SYSTEM_OUT">
+			<PatternLayout pattern="${logPattern}" />
 		</Console>
+		<File name="file" fileName="${prj.name}.log" append="false">
+			<PatternLayout pattern="${logPattern}" />
+		</File>
+		<File name="error" fileName="${prj.name}-error.log">
+			<ThresholdFilter level="error" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout pattern="${logPattern}" />
+		</File>
+		<RollingFile name="rollingFile" fileName="${prj.name}.txt"
+			filePattern="${prj.name}-%d{yyyyMMdd}-%i.log">
+			<PatternLayout pattern="${logPattern}" />
+			<!-- 什么时候产生新文件？ -->
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="2KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
 	</Appenders>
-<!-- 记录器，哪个包的什么信息级别输出到哪个位置 -->
-<Logger>
-</Logger>
+	<!-- 记录器，哪个包的什么信息级别输出到哪个位置 -->
+	<Loggers>
+		<!-- 自定义一个记录器 -->
+		<logger name="org.apache.struts" level="info"/>		
+		<logger name="demo" level="debug" additivity="false">
+			<AppenderRef ref="Console2" />
+			<AppenderRef ref="file" />
+			<AppenderRef ref="error" />
+			<AppenderRef ref="rollingFile" />
+		</logger>
+		<Root level="info">
+			<AppenderRef ref="Console2" />
+			<AppenderRef ref="file" />
+		</Root>
+	</Loggers>
 </Configuration>

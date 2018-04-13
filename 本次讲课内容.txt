@@ -1,29 +1,29 @@
- git 
- ant
- log4j
- 
- git
- 协同工作，历史记录
- who when where what code review
- git svn cvs
- 服务器 客户端
- 工作副本
- 服务器端
- github.com
- new repository
- https://github.com/csjsp/jee2018_13.git
- 
- git、TortoiseGit
- 服务器上有代码，自己没有代码
- clone
- 服务器上没有代码，自己有代码
- 创建代码库，commit(提交到本地代码库)
-push提交到服务器 
-
-怎么把服务器上的新代码取过来 pull
-svn必须每次连接服务器
-
-log4j2
-删掉原来log4j-api-2.7.jar，可能需要关掉myeclipse。邮箱有类库。增加log4j-slf4j-impl-2.8.2.jar、log4j-api-2.8.2.jar、log4j-core-2.8.2.jar、slf4j-api-1.7.12.jar
-
-在src目录下增加log4j2.xml。具体看该文件
+https://github.com/csjsp/jee2018_13
+private final static Logger logger
+  =LoggerFactory.getLogger(I18NDemo.class);
+  
+  logger.debug(String);
+  logger.debug("loc is {}",String);
+  
+  记录器的层次结构，
+  Root,自己定义的demo,
+  additivity是否使用上层的记录器，true
+  
+  实现信息过滤，特别关注error的信息
+  <File name="error" fileName="${prj.name}-error.log">
+	  <ThresholdFilter level="error" 
+	onMatch="ACCEPT" onMismatch="DENY"/>
+	<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+  </File>
+  滚动日志文件
+  <RollingFile name="rollingFile" fileName="${prj.name}.txt"
+		filePattern="${prj.name}-%d{yyyyMMdd}-%i.log">		   
+		   <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		   <!--  什么时候产生新文件？ -->
+		    <Policies>
+                 <TimeBasedTriggeringPolicy/>
+                 <SizeBasedTriggeringPolicy size="2KB"/>
+             </Policies>
+              <DefaultRolloverStrategy max="20"/>
+		</RollingFile>
+  日志文件满足产生新文件条件后，自动产生一个
