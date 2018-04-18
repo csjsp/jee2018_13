@@ -1,33 +1,40 @@
-https://github.com/csjsp/jee2018_13
-private final static Logger logger
-  =LoggerFactory.getLogger(I18NDemo.class);
-  
-  logger.debug(String);
-  logger.debug("loc is {}",String);
-  
-  记录器的层次结构，
-  Root,自己定义的demo,
-  additivity是否使用上层的记录器，true
-  
-  实现信息过滤，特别关注error的信息
-  <File name="error" fileName="${prj.name}-error.log">
-	  <ThresholdFilter level="error" 
-	onMatch="ACCEPT" onMismatch="DENY"/>
-	<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-  </File>
-  滚动日志文件
-  <RollingFile name="rollingFile" fileName="${prj.name}.txt"
-		filePattern="${prj.name}-%d{yyyyMMdd}-%i.log">		   
-		   <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-		   <!--  什么时候产生新文件？ -->
-		    <Policies>
-                 <TimeBasedTriggeringPolicy/>
-                 <SizeBasedTriggeringPolicy size="2KB"/>
-             </Policies>
-              <DefaultRolloverStrategy max="20"/>
-		</RollingFile>
-  日志文件满足产生新文件条件后，自动产生一个
-  
-  ant another build tool 
-  make
-  build.xml 根目录
+The namespace attribute subdivides action
+configurations into logical modules, 
+命名空间把action划分为不同的逻辑模块
+each with its own identifying prefix. 
+
+Namespaces avoid conflicts between action
+names. 
+避免action名字冲突
+Each namespace can have its own "menu" 
+or "help" action, 
+每个命名空间都可以有menu或help
+each with its own implementation. 
+
+java里的package
+action的全名：命名空间+action名字
+
+dtd：xml文档结构定义
+
+<!ELEMENT struts ((package|include|bean|constant)*,
+ *表示0或多个，|表示并列，不分先后
+unknown-handler-stack?)>
+访问网站，要么是根目录/，
+要么是非根目录 /stu/list.jsp
+默认命名空间
+根命名空间 /
+其他命名命名空间 /stu
+
+
+命名空间不存在父命名空间和子命名空间
+
+/下定义root，没有default2 /default2
+自己命名空间没有，都会从默认命名空间找
+/和其他命名空间可以访问自己和默认下的action，
+但互相之间不能访问
+
+/stu/list.action /stu/default2
+/stu/root
+
+myAction.setDate(new Date());
+
