@@ -46,5 +46,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="interceptor_input.jsp">通过文本框赋值</a>
     <s:url var="privateUrl" action="private" namespace="/sec"/>
     <a href="${privateUrl}">不登陆不能访问</a>
-  </body>
+    <br><a href="exDemo">演示异常处理</a>      </body>
+  
 </html>

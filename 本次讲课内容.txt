@@ -23,3 +23,10 @@ params用来把文本框的值赋值给action
 		<global-results>
 			<result name="login">/login_s2.jsp</result>
 		</global-results>
+		
+		<exception-mapping 
+		exception=""要处理哪一种异常，类名
+		result=""/>
+		
+		r  endsWith
+		
