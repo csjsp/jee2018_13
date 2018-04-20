@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+ <s:debug/>
     入门
     <br>
     <a href="login.jsp">login</a>
@@ -41,5 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="showLocs">显示所有语言地区</a>
     <br>拦截器
     <a href="myAction">显示日期</a>
+    <a href="interceptor_input.jsp">通过文本框赋值</a>
+    <s:url var="privateUrl" action="private" namespace="/sec"/>
+    <a href="${privateUrl}">不登陆不能访问</a>
   </body>
 </html>

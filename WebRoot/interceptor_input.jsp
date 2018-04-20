@@ -25,8 +25,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <s:debug/>
-  date:<s:property value="date"/>
-  <br>
-  username:<s:property value="username"/>
+  无params拦截器
+  <s:form action="myAction">
+     <s:textfield name="username" label="username"/>
+     <s:submit/>
+  </s:form>
+  myActionWithParams
+  <s:form action="myActionWithParams">
+     <s:textfield name="username" label="username"/>
+     <s:submit/>
+  </s:form>
   </body>
 </html>
