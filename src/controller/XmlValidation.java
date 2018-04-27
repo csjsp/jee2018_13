@@ -5,7 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class XmlValidation extends ActionSupport {
   int test_int;
   double test_double;
-  String pass;
+  String pass,repass;
 
   public int getTest_int() {
     return test_int;
@@ -29,6 +29,14 @@ public class XmlValidation extends ActionSupport {
 
   public void setPass(String pass) {
     this.pass = pass;
+  }
+
+  public String getRepass() {
+    return repass;
+  }
+
+  public void setRepass(String repass) {
+    this.repass = repass;
   }
   
 }

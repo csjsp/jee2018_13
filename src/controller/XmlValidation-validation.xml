@@ -15,9 +15,24 @@
 		<field-validator type="double">
 			<param name="minExclusive">50</param>
             <param name="maxExclusive">70</param>
-			<message>应该在(${minExclusive},${maxExclusive})之间</message>
-			
+			<message>应该在(${minExclusive},${maxExclusive})之间</message>			
 		</field-validator>
 	</field>
-	
+	<field name="pass">
+	   <field-validator type="requiredstring">
+	      <message>没有输入值</message>
+	   </field-validator>	    
+	   <field-validator type="stringlength" short-circuit="true">
+	     <param name="minLength">3</param>
+	     <message>至少${minLength}个字符，现有${pass.length()}个字符</message>
+	   </field-validator>
+	   <field-validator type="fieldexpression">
+	      <param name="expression">pass.equals(repass)</param>
+	      <message>两次输入的密码不一致</message>	   
+	   </field-validator>
+	</field>
+	<validator type="expression" short-circuit="true">	
+	   <param name="expression">pass.startsWith("123")</param>
+	   <message>密码没有以123开头</message>
+	</validator>	
 </validators>

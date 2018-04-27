@@ -5,3 +5,25 @@
 action类名-validation.xml
 
 message key=""
+
+stringlength空字符时没有校验
+required:判断一个对象有没有值 null ""
+requiredstring:判断字符串长度是否为0
+fieldexpression:用java代码判断
+pass.equals(repass)
+
+<field-validator type="fieldexpression">
+	      <param name="expression">pass.equals(repass)</param>
+	      <message>两次输入的密码不一致</message>	   
+	   </field-validator>
+	   test_int>=20&&test_int<=50
+	   <![CDATA[test_int>=20&&test_int<=50]]>
+
+	    字段校验器：错误信息和文本框有关
+		expression非字段校验器：错误信息在actioinerror中
+		pass.startsWith("123")
+		
+		校验器的短路：校验器之间有逻辑先后顺序，一个不通过，另一个没必要判断 short-circuit=true
+		字段校验器短路同一变量定义在后边的校验器
+		校验的时候，非字段校验器先运行，然后运行字段校验器
+	    非字段校验器可以短路定义在后边的非字段校验器、所有的字段校验器

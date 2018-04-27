@@ -25,11 +25,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <s:debug/>
+ <s:actionerror/>
  
     <s:form action="xmlValidation" method ="post">
       <s:textfield name="test_int" label="test_int[20,50]"/>
       <s:textfield name="test_double" label="test_double(50,70)"/>
       <s:textfield name="pass" label="pass(>=3)"/>        
+       <s:textfield name="repass" label="repass"/>
        <s:submit/>
     </s:form>
     
