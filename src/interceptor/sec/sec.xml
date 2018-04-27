@@ -12,7 +12,7 @@
 		    </interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="secStack"/>
-		<!-- 全局结果，所有的action都可使用 -->
+		<!-- 鍏ㄥ眬缁撴灉锛屾墍鏈夌殑action閮藉彲浣跨敤 -->
 		<global-results>
 			<result name="login">/login_s2.jsp</result>
 		</global-results>		

@@ -47,5 +47,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <s:url var="privateUrl" action="private" namespace="/sec"/>
     <a href="${privateUrl}">不登陆不能访问</a>
     <br><a href="exDemo">演示异常处理</a>      </body>
-  
+    <br><a href="validation_input.jsp">xml校验</a>
 </html>

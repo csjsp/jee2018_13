@@ -1,32 +1,7 @@
-params用来把文本框的值赋值给action
- <interceptor name="assignDate" class="interceptor.AssignDateInterceptor"/>
-  <interceptor-stack name="selfStack"> 
-    <interceptor-ref name="assignDate"/>
-    <interceptor-ref name="params"/>
-  </interceptor-stack>
-  
-  <action name="myActionWithStack" class="controller.MyAction">
-      <interceptor-ref name="selfStack"/>      
-      <result>/interceptor_suc.jsp</result>
-  </action>
-  
-  安全检查拦截器
-   Map session=arg.getInvocationContext().getSession();
-    Object obj=session.get("username");
-    //<result name="login">..</result>
-    if(obj==null) return "login";
-    else return arg.invoke();
-	
-	<interceptors>
-			<interceptor name="secCheck" class="interceptor.sec.SecInterceptor" />
-		</interceptors>
-		<global-results>
-			<result name="login">/login_s2.jsp</result>
-		</global-results>
-		
-		<exception-mapping 
-		exception=""要处理哪一种异常，类名
-		result=""/>
-		
-		r  endsWith
-		
+1 xml中定义校验规则先运行，定义简单校验，
+范围，长度，有没有值
+2 validate
+
+action类名-validation.xml
+
+message key=""
