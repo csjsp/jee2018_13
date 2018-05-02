@@ -25,3 +25,15 @@ public Date getMinDate() {
 	     <message>超出范围,应该在${getText("format.date.display",{min})} ${getText("format.date.display",{max})}</message>
 	   </field-validator>
 	</field>
+文本编辑器 	
+1 struts2-jquery-richtext-plugin-4.0.2
+2 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
+3 <sjr:ckeditor id="richTextEditor" name="memo" rows="10" cols="80"
+		width="730" height="250" value=""/>
+文件上传		
+<%-- File upload;String uploadContentType;
+  String uploadFileName; --%>
+  <s:form name="uploadForm" action="fileUpload" enctype="multipart/form-data">
+    <s:file name="upload"/>
+    <s:submit/>
+  </s:form>		

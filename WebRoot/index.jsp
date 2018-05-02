@@ -48,4 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="${privateUrl}">不登陆不能访问</a>
     <br><a href="exDemo">演示异常处理</a>      </body>
     <br><a href="validation_input.jsp">xml校验</a>
+    <br>
+    <a href="upload.jsp">文件上传</a>
 </html>
