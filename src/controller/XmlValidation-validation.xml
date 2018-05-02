@@ -31,8 +31,15 @@
 	      <message>两次输入的密码不一致</message>	   
 	   </field-validator>
 	</field>
-	<validator type="expression" short-circuit="true">	
+	<validator type="expression" short-circuit="false">	
 	   <param name="expression">pass.startsWith("123")</param>
 	   <message>密码没有以123开头</message>
 	</validator>	
+	<field name="test_date_jquery">
+	   <field-validator type="date">
+	     <param name="minExpression">${minDate}</param>
+	     <param name="maxExpression">${maxDate}</param>
+	     <message>超出范围,应该在${getText("format.date.display",{min})} ${getText("format.date.display",{max})}</message>
+	   </field-validator>
+	</field>
 </validators>
