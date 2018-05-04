@@ -25,7 +25,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
  <s:debug/>
- 多文件上传
+ <a href="<%=basePath%>/upload/<s:property value='uploadFileName'/>">下载</a>
+ <s:url var="downUrl" action="fileDown2">
+   <s:param name="path" value="uploadPath"/>
+ </s:url>
+ <a href="${downUrl}">通过action下载</a>
+ 
+ <s:url var="complexDownUrl" action="complexFileDown">
+   <s:param name="contentType" value="uploadContentType"/>
+   <s:param name="fileName" value="uploadFileName"/>
+   <s:param name="path" value="uploadPath"/>
+ </s:url>
+ <a href="${complexDownUrl}">复杂参数文件下载</a>
+ 多文件上传 
  <s:iterator value="uploadsFileName">
    <s:property/><br>
  </s:iterator>

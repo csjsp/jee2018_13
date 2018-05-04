@@ -1,39 +1,28 @@
-struts-jquery
-github.com/csjsp
+多文件,数组或List
+File[] 文本框名字
+String[] 文本框名字ContentType;
+String[] 文本框名字FileName;
 
-1 struts2-jquery-plugin-4.0.2.jar
-2 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-3 head中<sj:head/>
-4 <sj:datepicker name="test_date_jquery" label="Select a Date"
-            displayFormat="yy-mm-dd"
-            changeMonth="true" changeYear="true" />
-这里用的是yy，不是yyyy。
-format.date.input=yy-mm-dd
-displayFormat="%{getText('format.date.input')}"
+---
+通过action下载
+   <result type="stream">
+      <!--  public InputStream getTxtStream() -->
+         <param name="inputName">txtStream</param>
+      </result>
+	  
+	   <s:url var="complexDownUrl" action="complexFileDown">
+   <s:param name="contentType" value="uploadContentType"/>
+   <s:param name="fileName" value="uploadFileName"/>
+   <s:param name="path" value="uploadPath"/>
+ </s:url>
+ <a href="${complexDownUrl}">复杂参数文件下载</a>
+ <action name="complexFileDown" class="controller.FileDown">
+			<result name="success" type="stream">
+				<param name="contentType">${contentType}</param>
+				<param name="inputName">fileStream</param>
+				<param name="contentDisposition">attachment;filename="${cnFileName}"</param>				
+			</result>
+		</action>
 
-public Date getMinDate() {
-    return new GregorianCalendar(1990,0,1).getTime();
-  } 
-  public Date getMaxDate() {
-    return new GregorianCalendar(2020,0,1).getTime();
-  }
-  format.date.display={0,date,yyyy-mm-dd}
-  <field name="test_date_jquery">
-	   <field-validator type="date">
-	     <param name="minExpression">${minDate}</param>
-	     <param name="maxExpression">${maxDate}</param>
-	     <message>超出范围,应该在${getText("format.date.display",{min})} ${getText("format.date.display",{max})}</message>
-	   </field-validator>
-	</field>
-文本编辑器 	
-1 struts2-jquery-richtext-plugin-4.0.2
-2 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
-3 <sjr:ckeditor id="richTextEditor" name="memo" rows="10" cols="80"
-		width="730" height="250" value=""/>
-文件上传		
-<%-- File upload;String uploadContentType;
-  String uploadFileName; --%>
-  <s:form name="uploadForm" action="fileUpload" enctype="multipart/form-data">
-    <s:file name="upload"/>
-    <s:submit/>
-  </s:form>		
+文件名有乱码
+new String(fileName.getBytes(),"iso-8859-1")

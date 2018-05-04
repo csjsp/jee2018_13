@@ -37,6 +37,16 @@ public class FileUpload extends ActionSupport {
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
+	String uploadPath;
+	
+	public String getUploadPath() {
+		return uploadPath;
+	}
+
+	public void setUploadPath(String uploadPath) {
+		this.uploadPath = uploadPath;
+	}
+
 	@Override public String execute()throws Exception{
 		//源文件upload->目的文件 upload
 		String path=ServletActionContext
@@ -45,6 +55,7 @@ public class FileUpload extends ActionSupport {
 		File destFile=new File(path,uploadFileName);
 		Files.copy(upload.toPath(), destFile.toPath(),
 				StandardCopyOption.REPLACE_EXISTING);
+		uploadPath="/upload/"+uploadFileName;
 		return SUCCESS;
 	}
 
