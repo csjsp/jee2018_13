@@ -26,7 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <%-- File upload;String uploadContentType;
   String uploadFileName; --%>
-  <s:form name="uploadForm" action="fileUpload" enctype="multipart/form-data">
+  <s:form name="uploadForm" action="fileUpload" 
+  enctype="multipart/form-data">
     <s:file name="upload"/>
     <s:submit/>
   </s:form>
