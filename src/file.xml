@@ -6,7 +6,10 @@
 <package name="file" extends="struts-default">
    <action name="fileUpload" class="controller.FileUpload">
       <result>/upload_res.jsp</result>
-    </action>  
+    </action>
+    <action name="filesUpload" class="controller.FilesUpload">
+      <result>/upload_res.jsp</result>
+    </action>    
    </package>
    
 </struts>

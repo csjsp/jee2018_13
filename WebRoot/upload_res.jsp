@@ -25,5 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
  <s:debug/>
+ 多文件上传
+ <s:iterator value="uploadsFileName">
+   <s:property/><br>
+ </s:iterator>
   </body>
 </html>

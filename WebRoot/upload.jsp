@@ -31,5 +31,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <s:file name="upload"/>
     <s:submit/>
   </s:form>
+  上传多个文件
+  <s:form name="uploadsForm" action="filesUpload" 
+  enctype="multipart/form-data">
+    <s:file name="uploads"/>
+    <s:file name="uploads"/>
+    <s:file name="uploads"/>
+    <s:submit/>
+  </s:form>
   </body>
 </html>
