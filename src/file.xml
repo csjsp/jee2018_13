@@ -6,6 +6,14 @@
 	<package name="file" extends="struts-default">
 		<action name="fileUpload" class="controller.FileUpload">
 			<result>/upload_res.jsp</result>
+			<result name="input">/upload.jsp</result>
+		</action>
+		<action name="fileUploadLimitSize" class="controller.FileUpload">
+			<result>/upload_res.jsp</result>
+			<result name="input">/upload.jsp</result>
+			<interceptor-ref name="defaultStack">
+			  <param name="fileUpload.maximumSize">5000</param>
+			</interceptor-ref>
 		</action>
 		<action name="filesUpload" class="controller.FilesUpload">
 			<result>/upload_res.jsp</result>
