@@ -5,11 +5,14 @@ import java.util.GregorianCalendar;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import domain.Stu;
+
 public class XmlValidation extends ActionSupport {
   int test_int;
   double test_double;
   String pass,repass;
   Date test_date_jquery;
+  Stu stu;
   public int getTest_int() {
     return test_int;
   }
@@ -54,6 +57,14 @@ public Date getMaxDate(){
 }
 public Date getMinDate(){
 	return new GregorianCalendar(2000,0,1).getTime();
+}
+
+public Stu getStu() {
+  return stu;
+}
+
+public void setStu(Stu stu) {
+  this.stu = stu;
 }
 
 }

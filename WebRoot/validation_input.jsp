@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <sj:datepicker name="test_date_jquery" label="日期"
             displayFormat="%{getText('format.date.input')}"
             changeMonth="true" changeYear="true" />
+            <s:textfield name="stu.username" label="username"/>
             <sjr:ckeditor id="richTextEditor" name="memo" rows="10" cols="80"
 		width="730" height="250" value=""/>
        <s:submit/>

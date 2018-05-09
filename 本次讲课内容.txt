@@ -1,28 +1,38 @@
-多文件,数组或List
-File[] 文本框名字
-String[] 文本框名字ContentType;
-String[] 文本框名字FileName;
+add del edit list
+<s:textfiled name="stu.username"/>
+ant
+insert
+int executeUpdate
+>0
+<meta http-equiv="refresh" content="5;url=stu_list">
 
----
-通过action下载
-   <result type="stream">
-      <!--  public InputStream getTxtStream() -->
-         <param name="inputName">txtStream</param>
-      </result>
-	  
-	   <s:url var="complexDownUrl" action="complexFileDown">
-   <s:param name="contentType" value="uploadContentType"/>
-   <s:param name="fileName" value="uploadFileName"/>
-   <s:param name="path" value="uploadPath"/>
- </s:url>
- <a href="${complexDownUrl}">复杂参数文件下载</a>
- <action name="complexFileDown" class="controller.FileDown">
-			<result name="success" type="stream">
-				<param name="contentType">${contentType}</param>
-				<param name="inputName">fileStream</param>
-				<param name="contentDisposition">attachment;filename="${cnFileName}"</param>				
-			</result>
-		</action>
+edit
+get ?stu.usern=zhang&stu.java=90
+memo
+查数据库action，然后显示stu_edit.jsp
+id
+http://localhost:8080/jee2018/stu_edit.action?stu.id=3
 
-文件名有乱码
-new String(fileName.getBytes(),"iso-8859-1")
+update stu set username=?, math=?
+where id=?
+<s:hidden name="stu.id"/>
+
+del
+删除前 0 1 2 3
+删除中 3
+删除后 0 1 2
+
+实验六和作业2
+
+visitor使用其他的校验规则
+Stu-validation.xml requiredstring
+
+<field name="stu">
+       <field-validator type="visitor">          
+          <param name="appendPrefix">true</param>
+       </field-validator>
+    </field>
+	appendPrefix:文本框名字有没有前缀 stu.username
+	
+	
+	
